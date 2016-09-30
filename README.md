@@ -1,11 +1,19 @@
 
+# Android FFmpeg
+
+This project is forked from [guardianproject/android-ffmpeg](https://github.com/guardianproject/android-ffmpeg).
+But this project only build static ffmpeg with x264 for Android.
+
 This is a new android-ffmpeg project since it seems there were so many
 different ways of doing it, it was confusing.  So here is my clean, easily
 changeable, static ffmpeg creator for Android.  The result is a single
 'ffmpeg' that is statically linked, so its the only file you need.
 
-setup
------
+### Library Version
+- ffmpeg 3.1.3
+- x264 20160929-2245
+
+### setup
 
  1. Install the Android NDK r8 or newer
  2. On Debian/Ubuntu, run: apt-get install yasm bash patch make gawk
@@ -16,14 +24,12 @@ setup
     of config.guess and config.sub, which only recently got Android support)
 
 
-building
---------
-
+### building
+```bash
 cd android-ffmpeg
-git submodule init
-git submodule update
-NDK_BASE=/path/to/android-ndk 
+NDK_BASE=/path/to/android-ndk
 ./configure_make_everything.sh
+```
 
 That should give you command line binary ffmpeg/ffmpeg, which is the only file
 you should need.
