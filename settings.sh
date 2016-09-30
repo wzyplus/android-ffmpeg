@@ -4,7 +4,8 @@
 
 if [[ "x$NDK_BASE" == "x" ]]; then
     NDK_BASE=/opt/android-ndk
-    echo "No NDK_BASE set, using $NDK_BASE"
+    echo "No NDK_BASE set"
+    exit 1
 fi
 
 # Android now has 64-bit and 32-bit versions of the NDK for GNU/Linux.  We
@@ -51,7 +52,7 @@ EXTERNAL_ROOT=$PROJECT_ROOT
 
 # install root for built files
 DESTDIR=$EXTERNAL_ROOT
-prefix=/data/data/info.guardianproject.ffmpeg/app_opt
+prefix=/build/$NDK_ABI
 LOCAL=$DESTDIR$prefix
 
 
